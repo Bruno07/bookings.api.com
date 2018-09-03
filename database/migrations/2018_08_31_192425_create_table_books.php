@@ -14,7 +14,8 @@ class CreateTableBooks extends Migration
     public function up()
     {
         Schema::create('books', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->increments('id');
+            $table->uuid('code');
             $table->string('image');
             $table->string('title');
             $table->string('description');
@@ -31,6 +32,8 @@ class CreateTableBooks extends Migration
             $table->foreign('publishing_company_id')->references('id')->on('publishers');
             $table->foreign('language_id')->references('id')->on('languages');
             $table->foreign('format_id')->references('id')->on('formats');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 

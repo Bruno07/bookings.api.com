@@ -27,7 +27,8 @@ class ControllerClients extends Controller
         $fractal  = new Manager();
         $resource = new Fractal\Resource\Collection($clients, new ClientsTransformer, 'clients');
 
-        return $fractal->parseIncludes('user')
+        return $fractal
+            ->parseIncludes('user')
             ->createData($resource)
             ->toArray();
     }
@@ -39,7 +40,8 @@ class ControllerClients extends Controller
         $fractal  = new Manager();
         $resource = new Fractal\Resource\Item($client, new ClientsTransformer, 'client');
 
-        return $fractal->parseIncludes('user')
+        return $fractal
+            ->parseIncludes('user')
             ->createData($resource)
             ->toArray();
     }

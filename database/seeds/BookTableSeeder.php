@@ -13,7 +13,7 @@ class BookTableSeeder extends Seeder
 
         foreach (range(1,100) as $i) {
             Book::create([
-                'id' => $faker->uuid,
+                'code' => $faker->uuid,
                 'image' => $faker->imageUrl,
                 'title' => $faker->sentence,
                 'description' => $faker->paragraph,
